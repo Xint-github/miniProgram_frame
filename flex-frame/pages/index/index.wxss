@@ -1,0 +1,62 @@
+/**index.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* 将屏幕高度平分为100份，好处是对不同屏幕大小的设备适应不错 */
+}
+
+.head {
+  background-color: #ddd;
+  text-align: center;
+}
+
+.content {
+  position: relative;
+  flex-grow: 1;  /* 让中间元素自动放大 */
+}
+.scroll-list{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.list-view{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.card {
+  /* 计算图片宽度 100vw(边1 中2) (100-6)/2=47 */
+  /* 高度需按照一行几个固定死，这样才能用warp属性达到换行作用 */
+  width: 47vw;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* 底部工具栏 */
+.tools {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tools-item {
+  width: 45px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1;
+  padding: 20px;
+}
+
+.tools-item image {
+  width: 30px;
+}
