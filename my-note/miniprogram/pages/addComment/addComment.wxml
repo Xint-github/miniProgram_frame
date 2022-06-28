@@ -1,0 +1,15 @@
+<!--pages/addComment/addComment.wxml-->
+<view class="comment">
+  <!-- 上传 -->
+  <view class="comment-uploader">
+    <view wx:if="{{showAddBtn}}" class="uploader-add" bindtap="uploadImg">
+      <text class="uploader-add-icon">+</text>
+      <text class="uploader-add-btn">点击上传图片</text>
+    </view>
+    <!-- 若选择了则显示图片 -->
+    <image wx:else src="{{form.img}}" mode="aspectFit" class="uploader-img"></image>
+  </view>
+
+  <textarea class="comment-text" placeholder="请填写内容..." bindinput="onInput"></textarea>
+  <button class="comment-save" bindtap="onSave">保存</button>
+</view>

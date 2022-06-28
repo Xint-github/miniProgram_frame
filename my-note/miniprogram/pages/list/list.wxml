@@ -1,0 +1,55 @@
+<!--pages/list/list.wxml-->
+<template name="time">
+  <view class="time">
+    <text class="time-date">{{date}}/</text>
+    <text class="time-month">{{month}}/{{year}}</text>
+    <text class="time-hour">{{hours}}:{{minutes}}</text>
+  </view>
+</template>
+
+<template name="comment">
+  <view class="comment">
+    <image src="../../images/left-quote.png" class="comment-quote comment-quote--left" />
+    <text class="comment-main">{{comment}}</text>
+    <image src="../../images/right-quote.png" class="comment-quote comment-quote--right" />
+  </view>
+</template>
+
+<scroll-view scroll-y="true" class="wrapper">
+  <view wx:for="{{list}}" wx:key="_id" class="detail">
+    <view bindtap="goToDetail" data-index="{{index}}">
+      <template is="time" data="{{...item.timeInfo}}" />
+      <template is="comment" data="{{...item}}" />
+      <!-- <view class="time">
+        <text class="time-date">{{item.timeInfo.date}}/</text>
+        <text class="time-month">{{item.timeInfo.month}}/</text>
+        <text class="time-hour">{{item.timeInfo.hours}}:{{item.timeInfo.minutes}}:{{item.timeInfo.seconds}}</text>
+      </view> -->
+      <!-- <view class="digest-book">
+        <image class="digest-book-cover" src="{{item.info.images.small}}" mode="aspectFix" />
+        <view class="digest-book-info">
+          <view class="digest-book-title">{{item.info.title}}</view>
+          <view class="digest-book-score">评分： {{item.info.rating.average}}</view>
+          <view class="digest-book-detail">
+            {{item.info.authors}} / {{item.info.publisher}} / {{item.info.pages}}页 / {{item.info.binding}} / {{item.info.price}} / {{item.info.pubdate}}
+          </view>
+        </view>
+      </view> -->
+
+      <!-- <view class="comment">
+        <image src="../../images/left-quote.png" class="comment-quote" mode="widthFix"></image>
+        <text class="comment-main">{{item.comment}}</text>
+        <image src="../../images/right-quote.png" class="comment-quote" mode="widthFix"></image>
+      </view> -->
+
+      <image class="comment-img" src="{{item.img}}" mode="aspectFit"></image>
+    </view>
+
+  </view>
+</scroll-view>
+
+<view class="add {{showToolbar ? 'active' : '' }}">
+  <view class="add-icon" bindtap="goToAdd">
+    <text class="add-icon-txt">+</text>
+  </view>
+</view>

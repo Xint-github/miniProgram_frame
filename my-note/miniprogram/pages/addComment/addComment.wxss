@@ -1,0 +1,54 @@
+/* pages/addComment/addComment.wxss */
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.comment-uploader {
+  /* flex-basis: 400rpx; */
+  padding: 20rpx 20rpx 0;
+}
+
+.uploader-img {
+  width: 100%;
+  height: 400rpx;
+}
+
+.uploader-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #eff1f3;
+  color: #bfbfbf;
+  height: 400rpx;
+}
+
+.uploader-add-icon {
+  font-size: 200rpx;
+  line-height: 1;
+  margin-top: -40rpx;
+}
+
+.comment-text {
+  flex-grow: 1;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30rpx;
+  font-size: 28rpx;
+}
+
+.comment-save {
+  flex-basis: 90rpx;
+  margin: 20rpx;
+  background-color: #33c9ff;
+  color: #fff;
+  width: 95% !important;
+}
