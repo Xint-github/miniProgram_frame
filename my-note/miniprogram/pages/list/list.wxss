@@ -39,6 +39,12 @@
 .time-hour {
   margin-left: 20rpx;
 }
+.delete{
+  width: 40rpx;
+  font-size: smaller;
+  float: right;
+  padding-top: 30rpx;
+}
 
 .detail {
   padding: 0 36rpx;

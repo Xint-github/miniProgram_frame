@@ -88,7 +88,7 @@ Page({
           wx.navigateTo({
             url: '/pages/list/list',
           })
-        }, 1000);
+        }, 500);
       }
     })
 

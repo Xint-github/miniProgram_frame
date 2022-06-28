@@ -11,7 +11,6 @@ Page({
   data: {
     // 用于存储云端数据
     list: [],
-    // showToolbar: false
   },
 
   /**
@@ -96,15 +95,44 @@ Page({
 
     // console.log(list);
     this.setData({
-      list: list
+      list: list.reverse()
     })
   },
 
-  // onToggle: function () {
-  //   this.setData({
-  //     showToolbar: !this.data.showToolbar
-  //   });
-  // },
+  // 删除
+  onDelete(e) {
+    let _this = this;
+    let id = e.currentTarget.dataset.id;
+    // console.log(index);
+    wx.showModal({
+      title: '提示',
+      content: '确认要删除此条记事?',
+      success(res) {
+        if (res.confirm) {
+          // 使用云函数
+          wx.cloud.callFunction({
+            name: 'mydb',
+            data: {
+              type: 'delete',
+              id: id
+            },
+            success: res => {
+              // console.log(res);
+              wx.showToast({
+                title: '删除成功',
+                icon: 'none'
+              })
+
+              _this.getData()
+            },
+            fail: err => {
+              console.log(err);
+            }
+          })
+        }
+      }
+    })
+  },
 
   goToAdd() {
     wx.navigateTo({

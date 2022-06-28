@@ -29,16 +29,31 @@ function add(event, context) {
   })
 }
 
+// 删除日记
+function deleteNote(event, context){
+  console.log(event.id);
+  return new Promise(function(resolve, reject){
+    db.collection('note_list').doc(event.id).remove({
+      success: res => {
+        resolve(res)
+      },
+      fail: err => {
+        reject(err)
+      }
+    })
+  })
+}
+
 // 查询日记
 function getList(event, context) {
   // 这样会把所有人的日记查出
-  // return db.collection('note_list').get()
+  return db.collection('note_list').get()
 
   // 只查自己的日记
   // openid：小程序用户标识
-  return db.collection('note_list').where({
-    _openid:event.userInfo.openId
-  }).get()
+  // return db.collection('note_list').where({
+  //   _openid:event.userInfo.openId
+  // }).get()
 }
 
 // 根据id查询日记
@@ -63,6 +78,8 @@ exports.main = async (event, context) => {
     return add(event, context)
   } else if (event.type === 'list') {
     return getList(event, context)
+  } else if(event.type === 'delete'){
+    return deleteNote(event, context)
   } else {
     return getDataById(event, context)
   }

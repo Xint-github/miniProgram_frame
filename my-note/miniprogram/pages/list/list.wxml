@@ -1,9 +1,10 @@
 <!--pages/list/list.wxml-->
 <template name="time">
   <view class="time">
-    <text class="time-date">{{date}}/</text>
-    <text class="time-month">{{month}}/{{year}}</text>
-    <text class="time-hour">{{hours}}:{{minutes}}</text>
+    <text class="time-date">{{timeInfo.date}}/</text>
+    <text class="time-month">{{timeInfo.month}}/{{timeInfo.year}}</text>
+    <text class="time-hour">{{timeInfo.hours}}:{{timeInfo.minutes}}</text>
+    <image class="delete" src="../../images/delete.png" mode="widthFix" catchtap="onDelete" data-id="{{_id}}"></image>
   </view>
 </template>
 
@@ -18,7 +19,7 @@
 <scroll-view scroll-y="true" class="wrapper">
   <view wx:for="{{list}}" wx:key="_id" class="detail">
     <view bindtap="goToDetail" data-index="{{index}}">
-      <template is="time" data="{{...item.timeInfo}}" />
+      <template is="time" data="{{...item}}" />
       <template is="comment" data="{{...item}}" />
       <!-- <view class="time">
         <text class="time-date">{{item.timeInfo.date}}/</text>

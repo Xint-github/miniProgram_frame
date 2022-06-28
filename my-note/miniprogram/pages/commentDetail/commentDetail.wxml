@@ -1,5 +1,7 @@
 <!--pages/commentDetail/commentDetail.wxml-->
 <view class="comment">
+  <image src="../../images/left-quote.png" class="comment-quote comment-quote--left" />
   <text class="comment-text">{{detail.comment}}</text>
+  <image src="../../images/right-quote.png" class="comment-quote comment-quote--right" />
   <image class="comment-img" src="{{detail.img}}" mode="widthFix"></image>
 </view>
